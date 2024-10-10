@@ -139,6 +139,7 @@ export class Trakteer {
                 this.CreatorData = (await this.#session.get(`https://api.trakteer.id/v2/fe/creator/${$("tr-tip-payment-modal").attr("creator-id")}/summary`)).data.data;
                 resolve()
             } catch (e) {
+                if(e?.data?.includes("<title>Just a moment...</title>")) reject("Error: (Cf) Please use an asia region IP Address")
                 reject("Error: (GetData) " + String(e))
             }
         })
