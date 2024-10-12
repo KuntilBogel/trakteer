@@ -165,7 +165,7 @@ export class Trakteer {
                 const response = await this.#session.post(
                     'https://api.trakteer.id/v2/fe/payment/total',
                     {
-                        'price': Number(this.CreatorData.active_unit.data.price),
+                        'price': Number(this.CreatorData.active_unit.data.price) * UnitToDonate,
                         'payment_method': 'qris',
                         'is_payment_fee_by_supporter': true
                     }
