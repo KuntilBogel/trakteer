@@ -80,7 +80,7 @@ async function Uploader(base64String, filename) {
             form.append("file", buffer, filename || "none.png");
 
             const response = await axios.post(
-                "https://filezone.my.id/upload",
+                "https://vv214-uploader.hf.space/upload",
                 form,
                 {
                     headers: {
@@ -90,14 +90,16 @@ async function Uploader(base64String, filename) {
                         "sec-ch-ua-platform": '"Windows"',
                         Referer: "",
                         "sec-ch-ua-mobile": "?0",
-                        "User-Agent":
-                            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                        // "User-Agent":
+                        //     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                     },
                 }
             );
 
-            if (response.data && response.data.result.url_file) {
-                resolve(response.data.result.url_file);
+            // if (response.data && response.data.result.url_file) {
+            //     resolve(response.data.result.url_file);
+            if (response.data && response.data.url) {
+            resolve(response.data.url);
             } else {
                 reject(new Error('Upload failed: No file URL returned.'));
             }
