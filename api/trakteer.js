@@ -80,7 +80,7 @@ async function Uploader(base64String, filename) {
             form.append("file", buffer, filename || "none.png");
 
             const response = await axios.post(
-                "https://vv214-uploader.hf.space/upload",
+                "https://naesh-uploader.hf.space/upload",
                 form,
                 {
                     headers: {
